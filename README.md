@@ -1,3 +1,3 @@
 ## CTF List
 
-- DEF CON 2017
+- DEF CON CTF Qualifier 2017
