@@ -209,13 +209,13 @@ exploit은 unlink를 사용할 것이다. unlink는 다음과 같이 이루어�
 }
 ```
 
-이때 `FD->bk = BK;, BK->fd = FD;`라는 부분을 잘 봐야 한다. 이 부분은 `\*(fd + 0x18) = bk; \*(bk + 0x10) = fd;`와 같다. 
+이때 `FD->bk = BK;, BK->fd = FD;`라는 부분을 잘 봐야 한다. 이 부분은 `*(fd + 0x18) = bk; *(bk + 0x10) = fd;`와 같다. 
 
 왜 그런지는 위 heap 표를 보길바란다.
 
 `ex) chunk_0의 bk는 chunk_0 + 0x18이다. 그렇다면 FD의 bk는 FD + 0x18.`
 
-그렇다면 만약 fd에 값을 넣고 싶은 주소 - 0x18을 넣고 bk에 원하는 값을 넣으면 unlink과정에서 넣어질 것이다. `\*(fd + 0x18) = bk;`
+그렇다면 만약 fd에 값을 넣고 싶은 주소 - 0x18을 넣고 bk에 원하는 값을 넣으면 unlink과정에서 넣어질 것이다. `*(fd + 0x18) = bk;`
 
 일단 전체적인 시나리오는 이렇다.
 
@@ -232,9 +232,9 @@ exploit은 unlink를 사용할 것이다. unlink는 다음과 같이 이루어�
 unlink하는 부분을 봐보자
 
 ```
-\*(fd + 0x18) = bk; // puts@got = chunk_5의 data 시작 주소 (shellcode가 들어간 곳이다.)
+*(fd + 0x18) = bk; // puts@got = chunk_5의 data 시작 주소 (shellcode가 들어간 곳이다.)
 
-\*(bk + 0x10) = fd; // \*(chunk_5의 data + 0x10) = fd ???? 이 부분을 조심해야 한다. 
+*(bk + 0x10) = fd; // *(chunk_5의 data + 0x10) = fd 이 부분을 조심해야 한다. 
 ```
 
 그래서 SHORT Relative Jump를 이용할 것이다.
