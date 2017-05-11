@@ -107,7 +107,6 @@ ex) 1번 free후 2번 free는 unlink를 일으킴.
 |&chunk_2| prev_size  |  0|
 |&chunk_2(+ 0x8)| size (FLAG) |  0x40 (IS_MMAPPED)|
 |&chunk_2(+ 0x10 ~ +0x38)| data |  유저가 입력한 값들 |
-|&chunk_2(+ 0x20 ~ +0x38)| ... |  ... |
 |&chunk_3| prev_size  |  0|
 |&chunk_3(+ 0x8)| size (FLAG) |  0x40 (PREV_INUSE)|
 |&chunk_3(+ 0x10)| fd |  &chunk_1 |
