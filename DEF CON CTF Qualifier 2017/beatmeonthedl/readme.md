@@ -142,8 +142,7 @@ chunk_1의 bk에 chunk_3의 주소가 담겼다! 그렇다면 어떻게 leak할 
 
 0x80 bytes나 쓸 수 있다. 현재 할당되고 있는 chunk의 사이즈보다 크다. 
 
-chunk_1에 담긴 bk값을 출력시키려면 chunk_0의 내용을 bk전까지 모두 'A'같은걸로 채우면 NULL문자가 없기 때문에 bk도 같이 출력되어 leak 될 것이다!
-이렇게 !
+chunk_1에 담긴 bk값을 출력시키려면 chunk_0의 내용을 bk전까지 모두 'A'같은걸로 채우면 NULL문자가 없기 때문에 bk도 같이 출력되어 leak 될 것이다.
 
 | 주소   |  영역       | 값|
 | ----- |:-----------:| ----:|
@@ -211,7 +210,7 @@ exploit은 unlink를 사용할 것이다. unlink는 다음과 같이 이루어�
 
 왜 그런지는 위 heap 표를 보길바란다. ex) chunk_0의 bk는 chunk_0 + 0x18이다. 그렇다면 FD의 bk는 FD + 0x18.
 
-그렇다면 만약 fd에 값을 넣고 싶은 주소 - 0x18을 넣고 bk에 원하는 값을 넣으면 unlink과정에서 넣어질 것이다! \*(fd + 0x18) = bk; !!!
+그렇다면 만약 fd에 값을 넣고 싶은 주소 - 0x18을 넣고 bk에 원하는 값을 넣으면 unlink과정에서 넣어질 것이다. \*(fd + 0x18) = bk;
 
 일단 전체적인 시나리오는 이렇다.
 
@@ -226,7 +225,10 @@ exploit은 unlink를 사용할 것이다. unlink는 다음과 같이 이루어�
 unlink하는 부분을 봐보자
 
 \*(fd + 0x18) = bk; // puts@got = chunk_5의 data 시작 주소 (shellcode가 들어간 곳이다.)
-\*(bk + 0x10) = fd; // \*(chunk_5의 data + 0x10) = fd ???? 이 부분을 조심해야 한다. 그래서 SHORT Relative Jump를 이용할 것이다.
+
+\*(bk + 0x10) = fd; // \*(chunk_5의 data + 0x10) = fd ???? 이 부분을 조심해야 한다. 
+
+그래서 SHORT Relative Jump를 이용할 것이다.
 
 jmp 0x18;처럼 상대적인 jmp를 할 수 있도록 shellcode에 넣어주면 BK->fd=fd 때문에 들어온 fd의 값을 jmp하고 그 다음 shellcode를 실행 시켜주면 된다.
 
