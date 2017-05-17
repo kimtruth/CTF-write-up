@@ -1,5 +1,3 @@
-# 작성중.............
-
 # DEF CON CTF Qualifier 2017: Leo es Pequeno
 
 **write-up by [kimtruth](https://github.com/kimtruth)**
