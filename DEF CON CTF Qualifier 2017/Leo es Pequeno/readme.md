@@ -227,3 +227,4 @@ r.send("/bin/sh\x00\n")
 r.interactive()
 ```
 
+![](./solve.gif)
