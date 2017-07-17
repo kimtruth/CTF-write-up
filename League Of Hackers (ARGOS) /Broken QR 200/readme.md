@@ -2,7 +2,7 @@
 
 문제 파일:
 
-![](./FLAG.png)
+![](./chall/FLAG.png)
 
 손상된 QR코드다.
 
