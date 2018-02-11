@@ -1,2 +1,0 @@
-# HUST-write-up
-
